@@ -1,73 +1,51 @@
 import java.util.Scanner;
 
 public class CompleteStringProcessingSystem {
-
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Enter a sample string: ");
-        String original = sc.nextLine();
+        String str = sc.nextLine();
+
+        System.out.println(str);
+
+        System.out.println(str.length());
+
+        System.out.println("Uppercase: " + str.toUpperCase());
+
+        System.out.println("Lowercase: " + str.toLowerCase());
+
+        System.out.print("Enter a word to search: ");
+        String word = sc.nextLine();
+
+        System.out.println(str.contains(word));
+
+        System.out.print("Enter another string to compare: ");
+        String str2 = sc.nextLine();
+
+        System.out.println(str.equalsIgnoreCase(str2));
+
+        System.out.println("First character: " + str.charAt(0));
 
 
-        System.out.println("Original string: " + original);
+        Integer vowelCount = 0;
 
-
-        System.out.println("Total number of characters: " + original.length());
-
-
-        System.out.println("Uppercase: " + original.toUpperCase());
-
-
-        System.out.println("Lowercase: " + original.toLowerCase());
-
-
-        System.out.print("Enter a word to search in the string: ");
-        String searchWord = sc.nextLine();
-
-
-        if (original.contains(searchWord)) {
-            System.out.println("The word " + searchWord + " exists in the string.");
-        } else {
-            System.out.println("The word \"" + searchWord + "\" does not exist in the string.");
-        }
-
-
-        System.out.print("Enter another string for comparison: ");
-        String compareStr = sc.nextLine();
-
-
-        if (original.equalsIgnoreCase(compareStr)) {
-            System.out.println("Both strings are equal (ignoring case).");
-        } else {
-            System.out.println("Strings are not equal.");
-        }
-
-
-        if (original.length() > 0) {
-            System.out.println("First character of the string: " + original.charAt(0));
-        }
-
-
-        int vowelCount = 0;
-        System.out.println("Characters in the string:");
-        for (int i = 0; i < original.length(); i++) {
-            char ch = original.charAt(i);
-            System.out.println("Character at index " + i + ": " + ch);
-
-            if ("AEIOUaeiou".indexOf(ch) != 1) {
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
                 vowelCount++;
             }
         }
 
-        System.out.println("Total number of vowels: " + vowelCount);
+        System.out.println("Number of vowels: " + vowelCount);
 
-        if (original.length() > 10) {
-            System.out.println("The string is long (length greater than 10).");
+        if (str.length() > 10) {
+            System.out.println("The string is long.");
         } else {
-            System.out.println("The string is short (length 10 or less).");
+            System.out.println("The string is short.");
         }
-
-        sc.close();
     }
 }
+
 
